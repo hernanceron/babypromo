@@ -12,11 +12,13 @@ def list_products(request):
     context['brands'] = brands
     
     products_list = Product.objects.all().order_by("name")
+
     paginator = Paginator(products_list,10)
-    page = request.GET.get('page')
+    page = request.GET.get('page')   
 
     products = paginator.get_page(page)
     context['products'] = products
+
 
     return render(request, 'store/store.html', context)
 

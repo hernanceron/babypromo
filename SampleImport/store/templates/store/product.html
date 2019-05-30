@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+{% block breadcumb %}
+<li><a href="{% url "list_products" %}">Home</a></li>
+<li><a href="#">{{producto.model.brand.typeProduct}}</a></li>
+{% endblock %}
 {% block content %}
 <!-- SECTION -->
 <div class="section">

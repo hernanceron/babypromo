@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.contrib import admin
 from .models import Type, Brand, Modelo, Size, Product, Price, Store
 from .resources import TypeResource, BrandResource, ModeloResource, SizeResource, ProductoResource, PriceResource, StoreResource

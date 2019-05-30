@@ -23,9 +23,8 @@ class ProductoResource(resources.ModelResource):
 
 class PriceResource(resources.ModelResource):
     class Meta:
-        model = Price
-        import_id_fields = ('store','product','published_date','amount','discounted_price',)
-        fields = ('store','product','published_date','amount','discounted_price',)
+        model = Price        
+        fields = ('id','store','product','published_date','amount','discounted_price',)
 
 class StoreResource(resources.ModelResource):
     class Meta:
