@@ -8,8 +8,11 @@ def list_products(request):
     context = {}    
     tipoProductos = Type.objects.all()
     brands = Brand.objects.all()    
+    stores = Store.objects.all()
+
     context['tipoProductos'] = tipoProductos
     context['brands'] = brands
+    context['stores'] = stores
     
     products_list = Product.objects.all().order_by("name")
 

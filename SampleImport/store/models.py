@@ -1,5 +1,13 @@
 from django.db import models
 
+class PriceManager(models.Manager):
+    def last_prices(self, idProd,idStore):        
+        try:
+            result = self.filter(product__id = idProd, store__id = idStore).latest('published_date')
+        except Price.DoesNotExist:
+            result = None
+        return result
+
 #TIPO DE PRODUCTO
 class Type(models.Model):
     INACTIVO = 'INA'
@@ -108,7 +116,7 @@ class Price(models.Model):
     published_date = models.DateField()
     amount = models.CharField(max_length = 10)
     discounted_price = models.CharField(max_length = 10)
-
+    objects = PriceManager()
     class Meta:
         ordering = ['published_date']
 
