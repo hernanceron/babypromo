@@ -32,4 +32,5 @@ admin.site.register(Store, StoreAdmin)
 
 class PriceAdmin(ImportExportModelAdmin):
     resource_class = PriceResource
+    list_display = ('id', 'store', 'product', 'published_date', 'amount', 'discounted_price',)
 admin.site.register(Price, PriceAdmin)

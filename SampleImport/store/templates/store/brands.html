@@ -1,0 +1,9 @@
+{% for brand in brands %}
+    <div class="input-checkbox">
+        <input type="checkbox" id="brand-{{forloop.counter }}">
+        <label for="brand-{{forloop.counter }}">
+            <span></span>
+            {{brand.name}}
+        </label>
+    </div>
+{% endfor %}
