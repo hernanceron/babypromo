@@ -10,6 +10,7 @@ django = "*"
 django-import-export = "*"
 psycopg2 = "*"
 django-environ = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,5 +1,6 @@
 from import_export import resources, fields
 from .models import Type, Brand, Modelo, Size, Product, Price, Store
+from import_export.widgets import ForeignKeyWidget
 
 class TypeResource(resources.ModelResource):
     class Meta:
@@ -22,8 +23,10 @@ class ProductoResource(resources.ModelResource):
         model = Product
 
 class PriceResource(resources.ModelResource):
-    store = fields.Field(column_name="store", attribute="store")
-    product = fields.Field(column_name="product", attribute="product")
+    store = fields.Field(column_name="store", attribute="store",
+                            widget= ForeignKeyWidget(Store, 'id'))
+    product = fields.Field(column_name="product", attribute="product",
+                            widget = ForeignKeyWidget(Product, 'id'))
     published_date = fields.Field(column_name="published_date",attribute="published_date")
     amount = fields.Field(column_name="amount",attribute="amount")
     discounted_price = fields.Field(column_name="discounted_price",attribute="discounted_price")

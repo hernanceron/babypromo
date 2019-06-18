@@ -1,0 +1,21 @@
+{% load custom_tags %}
+<div class="sidebar-box-2">
+    <h2 class="heading">Categorias</h2>
+    <div class="fancy-collapse-panel">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            {% for type in types %}
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapse{{forloop.counter}}">{{type.name}}
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse{{forloop.counter}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{forloop.counter}}">
+                    {% show_brands type.id %}    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

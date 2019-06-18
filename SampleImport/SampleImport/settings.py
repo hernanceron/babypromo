@@ -29,7 +29,7 @@ SECRET_KEY = 'v7zqy^j+4l+^gv5apd_t#o1e7hq!j*kp^z9bg2287mou_d45h_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.99.100','127.0.0.1']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     'import_export',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -79,17 +80,17 @@ WSGI_APPLICATION = 'SampleImport.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#       'NAME': 'babypromo',
-#       'USER': 'postgres',
-#       'PASSWORD': 'mypassword',
-#       'HOST': '192.168.99.100',
-#       'PORT': '5432',
-#    }
-#}
-DATABASES = {"default": ENV.db("DATABASE_URL")}
+DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'babypromo',
+       'USER': 'postgres',
+       'PASSWORD': 'mypassword',
+       'HOST': '192.168.99.100',
+       'PORT': '5432',
+    }
+}
+#DATABASES = {"default": ENV.db("DATABASE_URL")}
 
 
 # Password validation
@@ -134,3 +135,9 @@ STATIC_URL = '/static/'
 
 #PARA IMPORT Y EXPORT
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+#REST FRAMEWORK
+REST_FRAMEWORK = {
+
+    'PAGE_SIZE': 100
+}

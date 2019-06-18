@@ -2,13 +2,19 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+import logging
+
+logger = logging.getLogger(__name__)
+
+
 class PriceManager(models.Manager):
     def last_prices(self, idProd,idStore):        
         try:
             result = self.filter(product__id = idProd, store__id = idStore).latest('published_date')
+            return result
         except Price.DoesNotExist:
             result = None
-        return result
+        
 
 #TIPO DE PRODUCTO
 class Type(models.Model):
