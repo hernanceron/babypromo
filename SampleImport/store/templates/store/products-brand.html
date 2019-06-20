@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_tags %}
 {% block content %}
 <div class="row">
 	{% for producto in products %}
@@ -16,7 +17,9 @@
 					</div>
 					<h3><a href="#">{{producto.name}}</a></h3>
 					<div class="pricing">
-						<p class="price"><span>$120.00</span></p>
+							{% for store in stores %}
+							{% show_prices producto.id store.id %}
+							{% endfor %}
 					</div>
 				</div>
 			</div>
